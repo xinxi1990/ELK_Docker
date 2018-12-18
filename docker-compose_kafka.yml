@@ -1,0 +1,84 @@
+version: '3.5'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    # environment:
+    #   MYID: 1
+    #   SERVERS: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    depends_on: 
+      - zookeeper
+    # links:
+    #   - zookeeper  
+    ports:
+      - "9092:9092"
+    environment:
+      # KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_HOST_NAME: 192.168.129.25
+      # KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      # KAFKA_BROKER_ID: 2
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_LOG_RETENTION_HOURS: "168"
+      KAFKA_LOG_RETENTION_BYTES: "100000000"
+      # KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
+  #   # environment:
+  #   #   - ELASTICSEARCH_USERNAME=admin
+  #   #   - ELASTICSEARCH_PASSWORD=admin@123
+  #   # environment:
+  #     # - cluster.name=docker-cluster
+  #     # - bootstrap.memory_lock=true
+  #     # - xpack.security.enabled=false
+  #     # - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #   ports:
+  #     - target: 9200
+  #       published: 9200
+  #       protocol: tcp
+  #       mode: host
+  #     - target: 9300
+  #       published: 9300
+  #       protocol: tcp
+  #       mode: host
+
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:6.5.3
+  #   volumes:
+  #     - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+  #   ports: 
+  #     - target: 5601
+  #       published: 5601
+  #       protocol: tcp
+  #       mode: host
+  #   depends_on:
+  #     - elasticsearch
+
+  # logstash:
+  #   image: docker.elastic.co/logstash/logstash:6.5.3
+  #   volumes:
+  #     - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+  #   ports:
+  #     - target: 5043
+  #       published: 5043
+  #       protocol: tcp
+  #       mode: host
+  #     - target: 9600
+  #       published: 9600
+  #       protocol: tcp
+  #       mode: host
+  #   depends_on:
+  #     - elasticsearch
+   
+  # filebeat:
+  #   image: docker.elastic.co/beats/filebeat:6.5.3
+  #   depends_on:
+  #     - logstash
+  #   volumes:
+  #     - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+  #     - ./logs/:/home/logs/
