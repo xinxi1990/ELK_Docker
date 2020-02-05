@@ -61,8 +61,8 @@ services:
 
   logstash:
     image: docker.elastic.co/logstash/logstash:6.5.3
-    volumes:
-      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    # volumes:
+    #   - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     ports:
       - target: 5043
         published: 5043

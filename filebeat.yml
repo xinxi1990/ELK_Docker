@@ -1,5 +1,6 @@
 filebeat.prospectors:
-- paths:
+- input_type: log  
+  paths:
     - /home/logs/customer/*.log
   multiline:
       pattern: ^\d{4}
@@ -7,14 +8,24 @@ filebeat.prospectors:
       match: after
   fields:
     doc_type: customer
-- paths:
+- input_type: log
+  paths:
     - /home/logs/order/*.log
   multiline:
       pattern: ^\d{4}
       negate: true
       match: after
   fields:
-    doc_type: order      
+    doc_type: order 
+- input_type: log
+  paths:
+    - /home/logs/test/*.log
+  multiline:
+      pattern: ^\d{4}
+      negate: true
+      match: after
+  fields:
+    doc_type: test         
 output.logstash:
   hosts: ["logstash:5044"]
 

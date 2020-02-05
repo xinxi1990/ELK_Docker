@@ -1,0 +1,2 @@
+33.55.69.101 - - [24/May/2018:01:50:26 +0800] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"
+222.174.69.101 - - [24/May/2018:01:52:11 +0800] "GET /abc HTTP/1.1" 404 3652 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"

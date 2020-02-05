@@ -33,8 +33,8 @@ services:
       - elasticsearch
   logstash:
     image: docker.elastic.co/logstash/logstash:6.5.3
-    volumes:
-      - ./file/logstash_back.conf:/usr/share/logstash/pipeline/logstash.conf
+    # volumes:
+    #   - ./file/logstash_back.conf:/usr/share/logstash/pipeline/logstash.conf
     ports:
       - target: 5043
         published: 5043
@@ -52,5 +52,5 @@ services:
     depends_on:
       - logstash
     volumes:
-      - ./file/filebeat_back.yml:/usr/share/filebeat/filebeat.yml
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./logs/:/home/logs/

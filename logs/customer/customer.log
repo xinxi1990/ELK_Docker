@@ -28,3 +28,15 @@ java.lang.IllegalStateException: No instances available for NOTICE-SERVICE
 	at org.springframework.cloud.client.loadbalancer.RetryLoadBalancerInterceptor$1.doWithRetry(RetryLoadBalancerInterceptor.java:76)
 	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:276)
 	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:157)
+2017-12-27 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-27 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-28 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-28 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-29 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-29 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-29 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-29 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-30 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-30 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-30 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration
+2017-12-30 10:20:56,478 INFO ConfigClusterResolver:43 - Resolving eureka endpoints via configuration		
